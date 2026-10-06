@@ -22,7 +22,11 @@ public abstract class Actor : MonoBehaviour
     {
         currentHealth -= damageAmount;
         Debug.Log($"{gameObject.name} took {damageAmount}");
+
+        if (currentHealth < 0)
+        { Die(); }
     }
+
     protected virtual void Die()
     {
         Debug.Log($"{gameObject.name} has been vanquished from their mortal shell");
